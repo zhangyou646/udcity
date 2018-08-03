@@ -11826,7 +11826,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[56]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">helper</span>
@@ -11848,11 +11848,12 @@ div#notebook {
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>maze-id 1-1532330716
-[[0, 0, 0, 0, 0, 2, 3],
- [1, 2, 2, 2, 0, 2, 0],
- [2, 0, 0, 0, 0, 2, 0],
- [2, 2, 2, 2, 0, 0, 0]]
+<pre>maze-id 1-1532503554
+[[3, 2, 2, 2, 2, 2, 2, 2, 1],
+ [0, 0, 2, 2, 2, 2, 2, 0, 0],
+ [2, 0, 0, 2, 2, 2, 0, 0, 2],
+ [2, 2, 0, 0, 2, 0, 0, 2, 2],
+ [2, 2, 2, 0, 0, 0, 2, 2, 2]]
 </pre>
 </div>
 </div>
@@ -11877,7 +11878,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[55]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># import helper</span>
@@ -11932,7 +11933,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#TODO 4计算模拟环境中，第一行的的障碍物个数。</span>
@@ -12049,7 +12050,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[45]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">is_move_valid_sepcial</span><span class="p">(</span><span class="n">loc</span><span class="p">,</span> <span class="n">act</span><span class="p">):</span>
@@ -12061,7 +12062,7 @@ div#notebook {
 <span class="sd">    loc -- tuple, robots current location</span>
 <span class="sd">    act -- string, robots meant action</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">env_data</span><span class="p">)</span>
+<span class="c1">#     print(env_data)</span>
     <span class="c1">#TODO 8</span>
     <span class="c1"># 判断输入的坐标是否合理范围，超过边界返回False</span>
     <span class="k">if</span> <span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">env_data</span><span class="p">):</span>
@@ -12070,7 +12071,7 @@ div#notebook {
         <span class="k">return</span> <span class="kc">False</span>
     <span class="k">if</span> <span class="n">act</span> <span class="o">==</span> <span class="s1">&#39;u&#39;</span><span class="p">:</span>
         <span class="c1">#TODO 判断是否走到最上的边界或则往上一步是否障碍物</span>
-        <span class="k">if</span> <span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">env_data</span><span class="p">[</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">loc</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">env_data</span><span class="p">[</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="mi">2</span><span class="p">][</span><span class="n">loc</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
             <span class="k">return</span> <span class="kc">False</span>
     <span class="k">if</span> <span class="n">act</span> <span class="o">==</span> <span class="s1">&#39;d&#39;</span><span class="p">:</span>
         <span class="c1">#TODO 判断是否走到最下的边界或则下一步是否障碍物</span>
@@ -12078,8 +12079,8 @@ div#notebook {
             <span class="k">return</span> <span class="kc">False</span>
     <span class="k">if</span> <span class="n">act</span> <span class="o">==</span> <span class="s1">&#39;l&#39;</span><span class="p">:</span>
         <span class="c1">#TODO 判断是否走到最左的边界或则左一步是否障碍物</span>
-        <span class="k">if</span> <span class="n">loc</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">env_data</span><span class="p">[</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">loc</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
-            <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">if</span> <span class="n">loc</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">env_data</span><span class="p">[</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">loc</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span> 
     <span class="k">if</span> <span class="n">act</span> <span class="o">==</span> <span class="s1">&#39;r&#39;</span><span class="p">:</span>
         <span class="c1">#TODO 判断是否走到最右的边界或则右一步是否障碍物</span>
         <span class="k">if</span> <span class="n">loc</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">env_data</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="ow">or</span> <span class="n">env_data</span><span class="p">[</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">loc</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
@@ -12106,7 +12107,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[67]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">is_move_valid</span><span class="p">(</span><span class="n">env_data</span><span class="p">,</span> <span class="n">loc</span><span class="p">,</span> <span class="n">act</span><span class="p">):</span>
@@ -12191,7 +12192,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[68]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## TODO 10 从头定义、实现你的函数</span>
@@ -12231,7 +12232,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[69]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">##TODO 11 从头定义、实现你的函数</span>
@@ -12283,7 +12284,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[70]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">##TODO 12 从头实现你的函数</span>
@@ -12325,20 +12326,14 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[58]:</div>
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 运行</span>
-<span class="c1"># env_data = [</span>
-<span class="c1">#     [2,2,3,0,2,0],</span>
-<span class="c1">#     [1,2,2,0,2,0],</span>
-<span class="c1">#     [0,0,2,0,2,0],</span>
-<span class="c1">#     [2,0,2,0,0,0],</span>
-<span class="c1">#     [2,0,0,0,2,0]]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">env_data</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">find_start_poc</span><span class="p">(</span><span class="n">env_data</span><span class="p">))</span>
 <span class="n">robot_current_loc</span> <span class="o">=</span> <span class="n">find_start_poc</span><span class="p">(</span><span class="n">env_data</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">400</span><span class="p">):</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">301</span><span class="p">):</span>
     <span class="n">robot_current_loc</span> <span class="o">=</span> <span class="n">random_choose_actions</span><span class="p">(</span><span class="n">env_data</span><span class="p">,</span><span class="n">robot_current_loc</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;当前坐标：&quot;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">robot_current_loc</span><span class="p">))</span>
     <span class="k">if</span> <span class="n">env_data</span><span class="p">[</span><span class="n">robot_current_loc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">robot_current_loc</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
@@ -12359,409 +12354,265 @@ div#notebook {
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>[[0, 0, 0, 0, 0, 2, 3], [1, 2, 2, 2, 0, 2, 0], [2, 0, 0, 0, 0, 2, 0], [2, 2, 2, 2, 0, 0, 0]]
-(2, 1)
+<pre>[[3, 2, 2, 2, 2, 2, 2, 2, 1], [0, 0, 2, 2, 2, 2, 2, 0, 0], [2, 0, 0, 2, 2, 2, 0, 0, 2], [2, 2, 0, 0, 2, 0, 0, 2, 2], [2, 2, 2, 0, 0, 0, 2, 2, 2]]
+(1, 9)
+指令：d
+当前坐标：(2, 9)
+指令：l
+当前坐标：(2, 8)
+指令：r
+当前坐标：(2, 9)
+指令：l
+当前坐标：(2, 8)
+指令：d
+当前坐标：(3, 8)
+指令：l
+当前坐标：(3, 7)
+指令：r
+当前坐标：(3, 8)
 指令：u
-当前坐标：(1, 1)
-指令：r
-当前坐标：(1, 2)
-指令：l
-当前坐标：(1, 1)
-指令：r
-当前坐标：(1, 2)
-指令：r
-当前坐标：(1, 3)
-指令：l
-当前坐标：(1, 2)
-指令：l
-当前坐标：(1, 1)
-指令：r
-当前坐标：(1, 2)
-指令：l
-当前坐标：(1, 1)
+当前坐标：(2, 8)
 指令：d
-当前坐标：(2, 1)
+当前坐标：(3, 8)
+指令：l
+当前坐标：(3, 7)
+指令：r
+当前坐标：(3, 8)
+指令：l
+当前坐标：(3, 7)
+指令：r
+当前坐标：(3, 8)
+指令：l
+当前坐标：(3, 7)
+指令：r
+当前坐标：(3, 8)
 指令：u
-当前坐标：(1, 1)
-指令：d
-当前坐标：(2, 1)
+当前坐标：(2, 8)
+指令：r
+当前坐标：(2, 9)
 指令：u
-当前坐标：(1, 1)
-指令：r
-当前坐标：(1, 2)
-指令：l
-当前坐标：(1, 1)
-指令：r
-当前坐标：(1, 2)
-指令：r
-当前坐标：(1, 3)
-指令：r
-当前坐标：(1, 4)
-指令：l
-当前坐标：(1, 3)
-指令：l
-当前坐标：(1, 2)
-指令：r
-当前坐标：(1, 3)
-指令：r
-当前坐标：(1, 4)
-指令：l
-当前坐标：(1, 3)
-指令：l
-当前坐标：(1, 2)
-指令：r
-当前坐标：(1, 3)
-指令：r
-当前坐标：(1, 4)
-指令：l
-当前坐标：(1, 3)
-指令：r
-当前坐标：(1, 4)
-指令：l
-当前坐标：(1, 3)
-指令：l
-当前坐标：(1, 2)
-指令：r
-当前坐标：(1, 3)
-指令：l
-当前坐标：(1, 2)
-指令：r
-当前坐标：(1, 3)
-指令：l
-当前坐标：(1, 2)
-指令：l
-当前坐标：(1, 1)
-指令：r
-当前坐标：(1, 2)
-指令：l
-当前坐标：(1, 1)
+当前坐标：(1, 9)
 指令：d
-当前坐标：(2, 1)
+当前坐标：(2, 9)
+指令：l
+当前坐标：(2, 8)
+指令：r
+当前坐标：(2, 9)
+指令：l
+当前坐标：(2, 8)
+指令：r
+当前坐标：(2, 9)
+指令：l
+当前坐标：(2, 8)
+指令：r
+当前坐标：(2, 9)
+指令：l
+当前坐标：(2, 8)
+指令：r
+当前坐标：(2, 9)
 指令：u
-当前坐标：(1, 1)
-指令：r
-当前坐标：(1, 2)
-指令：l
-当前坐标：(1, 1)
+当前坐标：(1, 9)
 指令：d
-当前坐标：(2, 1)
+当前坐标：(2, 9)
+指令：l
+当前坐标：(2, 8)
+指令：d
+当前坐标：(3, 8)
+指令：l
+当前坐标：(3, 7)
+指令：r
+当前坐标：(3, 8)
+指令：l
+当前坐标：(3, 7)
+指令：d
+当前坐标：(4, 7)
 指令：u
-当前坐标：(1, 1)
+当前坐标：(3, 7)
 指令：d
-当前坐标：(2, 1)
+当前坐标：(4, 7)
+指令：l
+当前坐标：(4, 6)
+指令：r
+当前坐标：(4, 7)
+指令：l
+当前坐标：(4, 6)
+指令：d
+当前坐标：(5, 6)
 指令：u
-当前坐标：(1, 1)
+当前坐标：(4, 6)
 指令：r
-当前坐标：(1, 2)
-指令：l
-当前坐标：(1, 1)
-指令：d
-当前坐标：(2, 1)
+当前坐标：(4, 7)
 指令：u
-当前坐标：(1, 1)
+当前坐标：(3, 7)
 指令：r
-当前坐标：(1, 2)
+当前坐标：(3, 8)
 指令：l
-当前坐标：(1, 1)
-指令：d
-当前坐标：(2, 1)
+当前坐标：(3, 7)
+指令：r
+当前坐标：(3, 8)
 指令：u
-当前坐标：(1, 1)
+当前坐标：(2, 8)
 指令：d
-当前坐标：(2, 1)
+当前坐标：(3, 8)
 指令：u
-当前坐标：(1, 1)
+当前坐标：(2, 8)
 指令：r
-当前坐标：(1, 2)
-指令：l
-当前坐标：(1, 1)
-指令：d
-当前坐标：(2, 1)
+当前坐标：(2, 9)
 指令：u
-当前坐标：(1, 1)
-指令：r
-当前坐标：(1, 2)
-指令：r
-当前坐标：(1, 3)
-指令：r
-当前坐标：(1, 4)
-指令：r
-当前坐标：(1, 5)
+当前坐标：(1, 9)
 指令：d
-当前坐标：(2, 5)
+当前坐标：(2, 9)
 指令：u
-当前坐标：(1, 5)
-指令：l
-当前坐标：(1, 4)
-指令：l
-当前坐标：(1, 3)
-指令：l
-当前坐标：(1, 2)
-指令：r
-当前坐标：(1, 3)
-指令：l
-当前坐标：(1, 2)
-指令：l
-当前坐标：(1, 1)
+当前坐标：(1, 9)
 指令：d
-当前坐标：(2, 1)
+当前坐标：(2, 9)
 指令：u
-当前坐标：(1, 1)
-指令：r
-当前坐标：(1, 2)
-指令：r
-当前坐标：(1, 3)
-指令：l
-当前坐标：(1, 2)
-指令：r
-当前坐标：(1, 3)
-指令：l
-当前坐标：(1, 2)
-指令：l
-当前坐标：(1, 1)
-指令：r
-当前坐标：(1, 2)
-指令：l
-当前坐标：(1, 1)
-指令：r
-当前坐标：(1, 2)
-指令：l
-当前坐标：(1, 1)
-指令：r
-当前坐标：(1, 2)
-指令：r
-当前坐标：(1, 3)
-指令：r
-当前坐标：(1, 4)
-指令：l
-当前坐标：(1, 3)
-指令：r
-当前坐标：(1, 4)
-指令：l
-当前坐标：(1, 3)
-指令：r
-当前坐标：(1, 4)
-指令：r
-当前坐标：(1, 5)
+当前坐标：(1, 9)
 指令：d
-当前坐标：(2, 5)
-指令：d
-当前坐标：(3, 5)
+当前坐标：(2, 9)
 指令：u
-当前坐标：(2, 5)
+当前坐标：(1, 9)
+指令：d
+当前坐标：(2, 9)
+指令：l
+当前坐标：(2, 8)
+指令：r
+当前坐标：(2, 9)
+指令：l
+当前坐标：(2, 8)
+指令：d
+当前坐标：(3, 8)
 指令：u
-当前坐标：(1, 5)
-指令：l
-当前坐标：(1, 4)
+当前坐标：(2, 8)
 指令：r
-当前坐标：(1, 5)
+当前坐标：(2, 9)
 指令：l
-当前坐标：(1, 4)
-指令：l
-当前坐标：(1, 3)
-指令：r
-当前坐标：(1, 4)
-指令：l
-当前坐标：(1, 3)
-指令：r
-当前坐标：(1, 4)
-指令：r
-当前坐标：(1, 5)
+当前坐标：(2, 8)
 指令：d
-当前坐标：(2, 5)
+当前坐标：(3, 8)
+指令：l
+当前坐标：(3, 7)
 指令：d
-当前坐标：(3, 5)
+当前坐标：(4, 7)
 指令：l
-当前坐标：(3, 4)
+当前坐标：(4, 6)
+指令：d
+当前坐标：(5, 6)
 指令：l
+当前坐标：(5, 5)
+指令：r
+当前坐标：(5, 6)
+指令：l
+当前坐标：(5, 5)
+指令：l
+当前坐标：(5, 4)
+指令：u
+当前坐标：(4, 4)
+指令：l
+当前坐标：(4, 3)
+指令：r
+当前坐标：(4, 4)
+指令：d
+当前坐标：(5, 4)
+指令：u
+当前坐标：(4, 4)
+指令：l
+当前坐标：(4, 3)
+指令：u
 当前坐标：(3, 3)
 指令：l
 当前坐标：(3, 2)
+指令：u
+当前坐标：(2, 2)
+指令：d
+当前坐标：(3, 2)
 指令：r
 当前坐标：(3, 3)
-指令：r
-当前坐标：(3, 4)
-指令：r
-当前坐标：(3, 5)
 指令：d
-当前坐标：(4, 5)
-指令：r
-当前坐标：(4, 6)
+当前坐标：(4, 3)
+指令：u
+当前坐标：(3, 3)
 指令：l
-当前坐标：(4, 5)
+当前坐标：(3, 2)
 指令：u
-当前坐标：(3, 5)
+当前坐标：(2, 2)
+指令：l
+当前坐标：(2, 1)
+指令：u
+当前坐标：(1, 1)
+在第92个回合找到宝藏！
 指令：d
-当前坐标：(4, 5)
+当前坐标：(2, 1)
 指令：r
-当前坐标：(4, 6)
+当前坐标：(2, 2)
 指令：l
-当前坐标：(4, 5)
+当前坐标：(2, 1)
+指令：u
+当前坐标：(1, 1)
+在第96个回合找到宝藏！
+指令：d
+当前坐标：(2, 1)
+指令：u
+当前坐标：(1, 1)
+在第98个回合找到宝藏！
+指令：d
+当前坐标：(2, 1)
 指令：r
-当前坐标：(4, 6)
+当前坐标：(2, 2)
 指令：l
-当前坐标：(4, 5)
+当前坐标：(2, 1)
+指令：u
+当前坐标：(1, 1)
+在第102个回合找到宝藏！
+指令：d
+当前坐标：(2, 1)
 指令：r
-当前坐标：(4, 6)
+当前坐标：(2, 2)
+指令：d
+当前坐标：(3, 2)
+指令：u
+当前坐标：(2, 2)
+指令：d
+当前坐标：(3, 2)
+指令：u
+当前坐标：(2, 2)
+指令：l
+当前坐标：(2, 1)
 指令：r
-当前坐标：(4, 7)
+当前坐标：(2, 2)
 指令：l
-当前坐标：(4, 6)
+当前坐标：(2, 1)
+指令：u
+当前坐标：(1, 1)
+在第112个回合找到宝藏！
+指令：d
+当前坐标：(2, 1)
+指令：u
+当前坐标：(1, 1)
+在第114个回合找到宝藏！
+指令：d
+当前坐标：(2, 1)
 指令：r
-当前坐标：(4, 7)
+当前坐标：(2, 2)
 指令：l
-当前坐标：(4, 6)
+当前坐标：(2, 1)
 指令：r
-当前坐标：(4, 7)
-指令：u
-当前坐标：(3, 7)
+当前坐标：(2, 2)
 指令：d
-当前坐标：(4, 7)
-指令：u
-当前坐标：(3, 7)
-指令：u
-当前坐标：(2, 7)
-指令：u
-当前坐标：(1, 7)
-在第131个回合找到宝藏！
-指令：d
-当前坐标：(2, 7)
-指令：u
-当前坐标：(1, 7)
-在第133个回合找到宝藏！
-指令：d
-当前坐标：(2, 7)
-指令：d
-当前坐标：(3, 7)
-指令：u
-当前坐标：(2, 7)
-指令：d
-当前坐标：(3, 7)
-指令：d
-当前坐标：(4, 7)
-指令：l
-当前坐标：(4, 6)
+当前坐标：(3, 2)
 指令：r
-当前坐标：(4, 7)
-指令：u
-当前坐标：(3, 7)
-指令：d
-当前坐标：(4, 7)
-指令：u
-当前坐标：(3, 7)
-指令：u
-当前坐标：(2, 7)
-指令：u
-当前坐标：(1, 7)
-在第145个回合找到宝藏！
-指令：d
-当前坐标：(2, 7)
-指令：d
-当前坐标：(3, 7)
-指令：d
-当前坐标：(4, 7)
+当前坐标：(3, 3)
 指令：l
-当前坐标：(4, 6)
+当前坐标：(3, 2)
+指令：u
+当前坐标：(2, 2)
+指令：d
+当前坐标：(3, 2)
 指令：r
-当前坐标：(4, 7)
-指令：u
-当前坐标：(3, 7)
+当前坐标：(3, 3)
 指令：d
-当前坐标：(4, 7)
+当前坐标：(4, 3)
 指令：u
-当前坐标：(3, 7)
-指令：u
-当前坐标：(2, 7)
-指令：d
-当前坐标：(3, 7)
-指令：d
-当前坐标：(4, 7)
-指令：u
-当前坐标：(3, 7)
-指令：d
-当前坐标：(4, 7)
-指令：u
-当前坐标：(3, 7)
-指令：u
-当前坐标：(2, 7)
-指令：u
-当前坐标：(1, 7)
-在第161个回合找到宝藏！
-指令：d
-当前坐标：(2, 7)
-指令：d
-当前坐标：(3, 7)
-指令：u
-当前坐标：(2, 7)
-指令：d
-当前坐标：(3, 7)
-指令：d
-当前坐标：(4, 7)
-指令：l
-当前坐标：(4, 6)
-指令：r
-当前坐标：(4, 7)
-指令：u
-当前坐标：(3, 7)
-指令：d
-当前坐标：(4, 7)
-指令：l
-当前坐标：(4, 6)
-指令：l
-当前坐标：(4, 5)
-指令：u
-当前坐标：(3, 5)
-指令：u
-当前坐标：(2, 5)
-指令：u
-当前坐标：(1, 5)
-指令：d
-当前坐标：(2, 5)
-指令：u
-当前坐标：(1, 5)
-指令：d
-当前坐标：(2, 5)
-指令：d
-当前坐标：(3, 5)
-指令：d
-当前坐标：(4, 5)
-指令：r
-当前坐标：(4, 6)
-指令：l
-当前坐标：(4, 5)
-指令：r
-当前坐标：(4, 6)
-指令：r
-当前坐标：(4, 7)
-指令：l
-当前坐标：(4, 6)
-指令：r
-当前坐标：(4, 7)
-指令：l
-当前坐标：(4, 6)
-指令：l
-当前坐标：(4, 5)
-指令：u
-当前坐标：(3, 5)
-指令：u
-当前坐标：(2, 5)
-指令：u
-当前坐标：(1, 5)
-指令：d
-当前坐标：(2, 5)
-指令：u
-当前坐标：(1, 5)
-指令：d
-当前坐标：(2, 5)
-指令：d
-当前坐标：(3, 5)
-指令：l
-当前坐标：(3, 4)
-指令：r
-当前坐标：(3, 5)
-指令：l
-当前坐标：(3, 4)
-指令：l
 当前坐标：(3, 3)
 指令：l
 当前坐标：(3, 2)
@@ -12769,363 +12620,331 @@ div#notebook {
 当前坐标：(3, 3)
 指令：l
 当前坐标：(3, 2)
-指令：r
-当前坐标：(3, 3)
-指令：r
-当前坐标：(3, 4)
-指令：r
-当前坐标：(3, 5)
 指令：u
-当前坐标：(2, 5)
-指令：u
-当前坐标：(1, 5)
-指令：l
-当前坐标：(1, 4)
-指令：l
-当前坐标：(1, 3)
-指令：r
-当前坐标：(1, 4)
-指令：l
-当前坐标：(1, 3)
-指令：r
-当前坐标：(1, 4)
-指令：r
-当前坐标：(1, 5)
+当前坐标：(2, 2)
 指令：d
-当前坐标：(2, 5)
-指令：u
-当前坐标：(1, 5)
-指令：l
-当前坐标：(1, 4)
-指令：r
-当前坐标：(1, 5)
-指令：d
-当前坐标：(2, 5)
-指令：u
-当前坐标：(1, 5)
-指令：d
-当前坐标：(2, 5)
-指令：d
-当前坐标：(3, 5)
-指令：u
-当前坐标：(2, 5)
-指令：u
-当前坐标：(1, 5)
-指令：d
-当前坐标：(2, 5)
-指令：d
-当前坐标：(3, 5)
-指令：d
-当前坐标：(4, 5)
-指令：u
-当前坐标：(3, 5)
-指令：u
-当前坐标：(2, 5)
-指令：u
-当前坐标：(1, 5)
-指令：d
-当前坐标：(2, 5)
-指令：u
-当前坐标：(1, 5)
-指令：l
-当前坐标：(1, 4)
-指令：l
-当前坐标：(1, 3)
-指令：r
-当前坐标：(1, 4)
-指令：l
-当前坐标：(1, 3)
-指令：r
-当前坐标：(1, 4)
-指令：l
-当前坐标：(1, 3)
-指令：r
-当前坐标：(1, 4)
-指令：l
-当前坐标：(1, 3)
-指令：r
-当前坐标：(1, 4)
-指令：l
-当前坐标：(1, 3)
-指令：l
-当前坐标：(1, 2)
-指令：r
-当前坐标：(1, 3)
-指令：l
-当前坐标：(1, 2)
-指令：l
-当前坐标：(1, 1)
-指令：d
-当前坐标：(2, 1)
-指令：u
-当前坐标：(1, 1)
-指令：d
-当前坐标：(2, 1)
-指令：u
-当前坐标：(1, 1)
-指令：d
-当前坐标：(2, 1)
-指令：u
-当前坐标：(1, 1)
-指令：r
-当前坐标：(1, 2)
-指令：r
-当前坐标：(1, 3)
-指令：l
-当前坐标：(1, 2)
-指令：l
-当前坐标：(1, 1)
-指令：r
-当前坐标：(1, 2)
-指令：l
-当前坐标：(1, 1)
-指令：r
-当前坐标：(1, 2)
-指令：l
-当前坐标：(1, 1)
-指令：d
-当前坐标：(2, 1)
-指令：u
-当前坐标：(1, 1)
-指令：r
-当前坐标：(1, 2)
-指令：l
-当前坐标：(1, 1)
-指令：r
-当前坐标：(1, 2)
-指令：l
-当前坐标：(1, 1)
-指令：d
-当前坐标：(2, 1)
-指令：u
-当前坐标：(1, 1)
-指令：r
-当前坐标：(1, 2)
-指令：l
-当前坐标：(1, 1)
-指令：d
-当前坐标：(2, 1)
-指令：u
-当前坐标：(1, 1)
-指令：d
-当前坐标：(2, 1)
-指令：u
-当前坐标：(1, 1)
-指令：d
-当前坐标：(2, 1)
-指令：u
-当前坐标：(1, 1)
-指令：r
-当前坐标：(1, 2)
-指令：r
-当前坐标：(1, 3)
-指令：r
-当前坐标：(1, 4)
-指令：l
-当前坐标：(1, 3)
-指令：l
-当前坐标：(1, 2)
-指令：r
-当前坐标：(1, 3)
-指令：l
-当前坐标：(1, 2)
-指令：l
-当前坐标：(1, 1)
-指令：r
-当前坐标：(1, 2)
-指令：r
-当前坐标：(1, 3)
-指令：r
-当前坐标：(1, 4)
-指令：l
-当前坐标：(1, 3)
-指令：r
-当前坐标：(1, 4)
-指令：r
-当前坐标：(1, 5)
-指令：d
-当前坐标：(2, 5)
-指令：d
-当前坐标：(3, 5)
-指令：d
-当前坐标：(4, 5)
-指令：u
-当前坐标：(3, 5)
-指令：u
-当前坐标：(2, 5)
-指令：u
-当前坐标：(1, 5)
-指令：d
-当前坐标：(2, 5)
-指令：u
-当前坐标：(1, 5)
-指令：d
-当前坐标：(2, 5)
-指令：u
-当前坐标：(1, 5)
-指令：l
-当前坐标：(1, 4)
-指令：r
-当前坐标：(1, 5)
-指令：d
-当前坐标：(2, 5)
-指令：d
-当前坐标：(3, 5)
-指令：u
-当前坐标：(2, 5)
-指令：d
-当前坐标：(3, 5)
-指令：d
-当前坐标：(4, 5)
-指令：u
-当前坐标：(3, 5)
-指令：u
-当前坐标：(2, 5)
-指令：u
-当前坐标：(1, 5)
-指令：d
-当前坐标：(2, 5)
-指令：u
-当前坐标：(1, 5)
-指令：l
-当前坐标：(1, 4)
-指令：r
-当前坐标：(1, 5)
-指令：l
-当前坐标：(1, 4)
-指令：l
-当前坐标：(1, 3)
-指令：l
-当前坐标：(1, 2)
-指令：r
-当前坐标：(1, 3)
-指令：l
-当前坐标：(1, 2)
-指令：r
-当前坐标：(1, 3)
-指令：l
-当前坐标：(1, 2)
-指令：l
-当前坐标：(1, 1)
-指令：d
-当前坐标：(2, 1)
-指令：u
-当前坐标：(1, 1)
-指令：r
-当前坐标：(1, 2)
-指令：r
-当前坐标：(1, 3)
-指令：l
-当前坐标：(1, 2)
-指令：r
-当前坐标：(1, 3)
-指令：r
-当前坐标：(1, 4)
-指令：r
-当前坐标：(1, 5)
-指令：d
-当前坐标：(2, 5)
-指令：u
-当前坐标：(1, 5)
-指令：d
-当前坐标：(2, 5)
-指令：d
-当前坐标：(3, 5)
-指令：u
-当前坐标：(2, 5)
-指令：u
-当前坐标：(1, 5)
-指令：d
-当前坐标：(2, 5)
-指令：d
-当前坐标：(3, 5)
-指令：l
-当前坐标：(3, 4)
-指令：l
-当前坐标：(3, 3)
-指令：l
 当前坐标：(3, 2)
 指令：r
 当前坐标：(3, 3)
+指令：d
+当前坐标：(4, 3)
+指令：r
+当前坐标：(4, 4)
 指令：l
-当前坐标：(3, 2)
-指令：r
-当前坐标：(3, 3)
-指令：l
-当前坐标：(3, 2)
-指令：r
-当前坐标：(3, 3)
-指令：r
-当前坐标：(3, 4)
-指令：l
-当前坐标：(3, 3)
-指令：l
-当前坐标：(3, 2)
-指令：r
-当前坐标：(3, 3)
-指令：r
-当前坐标：(3, 4)
-指令：r
-当前坐标：(3, 5)
-指令：l
-当前坐标：(3, 4)
-指令：l
-当前坐标：(3, 3)
-指令：l
-当前坐标：(3, 2)
-指令：r
-当前坐标：(3, 3)
-指令：l
-当前坐标：(3, 2)
-指令：r
-当前坐标：(3, 3)
-指令：l
-当前坐标：(3, 2)
-指令：r
-当前坐标：(3, 3)
-指令：r
-当前坐标：(3, 4)
-指令：r
-当前坐标：(3, 5)
+当前坐标：(4, 3)
 指令：u
-当前坐标：(2, 5)
-指令：u
-当前坐标：(1, 5)
+当前坐标：(3, 3)
 指令：d
-当前坐标：(2, 5)
+当前坐标：(4, 3)
 指令：u
-当前坐标：(1, 5)
+当前坐标：(3, 3)
 指令：d
-当前坐标：(2, 5)
+当前坐标：(4, 3)
 指令：u
-当前坐标：(1, 5)
+当前坐标：(3, 3)
 指令：l
-当前坐标：(1, 4)
-指令：r
-当前坐标：(1, 5)
-指令：d
-当前坐标：(2, 5)
+当前坐标：(3, 2)
 指令：u
-当前坐标：(1, 5)
+当前坐标：(2, 2)
 指令：d
-当前坐标：(2, 5)
-指令：d
-当前坐标：(3, 5)
-指令：d
-当前坐标：(4, 5)
+当前坐标：(3, 2)
 指令：r
+当前坐标：(3, 3)
+指令：d
+当前坐标：(4, 3)
+指令：u
+当前坐标：(3, 3)
+指令：d
+当前坐标：(4, 3)
+指令：r
+当前坐标：(4, 4)
+指令：d
+当前坐标：(5, 4)
+指令：u
+当前坐标：(4, 4)
+指令：l
+当前坐标：(4, 3)
+指令：r
+当前坐标：(4, 4)
+指令：d
+当前坐标：(5, 4)
+指令：u
+当前坐标：(4, 4)
+指令：d
+当前坐标：(5, 4)
+指令：u
+当前坐标：(4, 4)
+指令：l
+当前坐标：(4, 3)
+指令：u
+当前坐标：(3, 3)
+指令：d
+当前坐标：(4, 3)
+指令：r
+当前坐标：(4, 4)
+指令：d
+当前坐标：(5, 4)
+指令：u
+当前坐标：(4, 4)
+指令：d
+当前坐标：(5, 4)
+指令：r
+当前坐标：(5, 5)
+指令：l
+当前坐标：(5, 4)
+指令：u
+当前坐标：(4, 4)
+指令：d
+当前坐标：(5, 4)
+指令：r
+当前坐标：(5, 5)
+指令：r
+当前坐标：(5, 6)
+指令：u
 当前坐标：(4, 6)
-指令：l
-当前坐标：(4, 5)
-指令：u
-当前坐标：(3, 5)
-指令：d
-当前坐标：(4, 5)
 指令：r
+当前坐标：(4, 7)
+指令：l
+当前坐标：(4, 6)
+指令：d
+当前坐标：(5, 6)
+指令：u
+当前坐标：(4, 6)
+指令：d
+当前坐标：(5, 6)
+指令：l
+当前坐标：(5, 5)
+指令：r
+当前坐标：(5, 6)
+指令：l
+当前坐标：(5, 5)
+指令：l
+当前坐标：(5, 4)
+指令：r
+当前坐标：(5, 5)
+指令：l
+当前坐标：(5, 4)
+指令：u
+当前坐标：(4, 4)
+指令：d
+当前坐标：(5, 4)
+指令：u
+当前坐标：(4, 4)
+指令：l
+当前坐标：(4, 3)
+指令：u
+当前坐标：(3, 3)
+指令：d
+当前坐标：(4, 3)
+指令：r
+当前坐标：(4, 4)
+指令：d
+当前坐标：(5, 4)
+指令：r
+当前坐标：(5, 5)
+指令：r
+当前坐标：(5, 6)
+指令：l
+当前坐标：(5, 5)
+指令：l
+当前坐标：(5, 4)
+指令：r
+当前坐标：(5, 5)
+指令：r
+当前坐标：(5, 6)
+指令：l
+当前坐标：(5, 5)
+指令：r
+当前坐标：(5, 6)
+指令：l
+当前坐标：(5, 5)
+指令：l
+当前坐标：(5, 4)
+指令：u
+当前坐标：(4, 4)
+指令：d
+当前坐标：(5, 4)
+指令：u
+当前坐标：(4, 4)
+指令：d
+当前坐标：(5, 4)
+指令：u
+当前坐标：(4, 4)
+指令：l
+当前坐标：(4, 3)
+指令：r
+当前坐标：(4, 4)
+指令：l
+当前坐标：(4, 3)
+指令：r
+当前坐标：(4, 4)
+指令：d
+当前坐标：(5, 4)
+指令：r
+当前坐标：(5, 5)
+指令：r
+当前坐标：(5, 6)
+指令：l
+当前坐标：(5, 5)
+指令：r
+当前坐标：(5, 6)
+指令：l
+当前坐标：(5, 5)
+指令：l
+当前坐标：(5, 4)
+指令：r
+当前坐标：(5, 5)
+指令：r
+当前坐标：(5, 6)
+指令：l
+当前坐标：(5, 5)
+指令：l
+当前坐标：(5, 4)
+指令：r
+当前坐标：(5, 5)
+指令：r
+当前坐标：(5, 6)
+指令：l
+当前坐标：(5, 5)
+指令：l
+当前坐标：(5, 4)
+指令：r
+当前坐标：(5, 5)
+指令：l
+当前坐标：(5, 4)
+指令：r
+当前坐标：(5, 5)
+指令：l
+当前坐标：(5, 4)
+指令：u
+当前坐标：(4, 4)
+指令：d
+当前坐标：(5, 4)
+指令：r
+当前坐标：(5, 5)
+指令：l
+当前坐标：(5, 4)
+指令：u
+当前坐标：(4, 4)
+指令：l
+当前坐标：(4, 3)
+指令：r
+当前坐标：(4, 4)
+指令：l
+当前坐标：(4, 3)
+指令：r
+当前坐标：(4, 4)
+指令：l
+当前坐标：(4, 3)
+指令：r
+当前坐标：(4, 4)
+指令：l
+当前坐标：(4, 3)
+指令：r
+当前坐标：(4, 4)
+指令：l
+当前坐标：(4, 3)
+指令：r
+当前坐标：(4, 4)
+指令：l
+当前坐标：(4, 3)
+指令：r
+当前坐标：(4, 4)
+指令：d
+当前坐标：(5, 4)
+指令：u
+当前坐标：(4, 4)
+指令：d
+当前坐标：(5, 4)
+指令：u
+当前坐标：(4, 4)
+指令：d
+当前坐标：(5, 4)
+指令：r
+当前坐标：(5, 5)
+指令：l
+当前坐标：(5, 4)
+指令：r
+当前坐标：(5, 5)
+指令：r
+当前坐标：(5, 6)
+指令：u
+当前坐标：(4, 6)
+指令：d
+当前坐标：(5, 6)
+指令：l
+当前坐标：(5, 5)
+指令：r
+当前坐标：(5, 6)
+指令：u
+当前坐标：(4, 6)
+指令：d
+当前坐标：(5, 6)
+指令：l
+当前坐标：(5, 5)
+指令：r
+当前坐标：(5, 6)
+指令：l
+当前坐标：(5, 5)
+指令：r
+当前坐标：(5, 6)
+指令：l
+当前坐标：(5, 5)
+指令：r
+当前坐标：(5, 6)
+指令：l
+当前坐标：(5, 5)
+指令：r
+当前坐标：(5, 6)
+指令：u
+当前坐标：(4, 6)
+指令：d
+当前坐标：(5, 6)
+指令：l
+当前坐标：(5, 5)
+指令：r
+当前坐标：(5, 6)
+指令：u
 当前坐标：(4, 6)
 指令：r
 当前坐标：(4, 7)
 指令：u
+当前坐标：(3, 7)
+指令：r
+当前坐标：(3, 8)
+指令：u
+当前坐标：(2, 8)
+指令：d
+当前坐标：(3, 8)
+指令：u
+当前坐标：(2, 8)
+指令：r
+当前坐标：(2, 9)
+指令：u
+当前坐标：(1, 9)
+指令：d
+当前坐标：(2, 9)
+指令：u
+当前坐标：(1, 9)
+指令：d
+当前坐标：(2, 9)
+指令：u
+当前坐标：(1, 9)
+指令：d
+当前坐标：(2, 9)
+指令：l
+当前坐标：(2, 8)
+指令：r
+当前坐标：(2, 9)
+指令：l
+当前坐标：(2, 8)
+指令：r
+当前坐标：(2, 9)
+指令：l
+当前坐标：(2, 8)
+指令：d
+当前坐标：(3, 8)
+指令：l
 当前坐标：(3, 7)
 指令：d
 当前坐标：(4, 7)
@@ -13135,34 +12954,14 @@ div#notebook {
 当前坐标：(4, 7)
 指令：u
 当前坐标：(3, 7)
-指令：d
-当前坐标：(4, 7)
-指令：l
-当前坐标：(4, 6)
-指令：l
-当前坐标：(4, 5)
 指令：r
-当前坐标：(4, 6)
-指令：l
-当前坐标：(4, 5)
+当前坐标：(3, 8)
+指令：u
+当前坐标：(2, 8)
 指令：r
-当前坐标：(4, 6)
-指令：r
-当前坐标：(4, 7)
+当前坐标：(2, 9)
 指令：u
-当前坐标：(3, 7)
-指令：d
-当前坐标：(4, 7)
-指令：l
-当前坐标：(4, 6)
-指令：l
-当前坐标：(4, 5)
-指令：u
-当前坐标：(3, 5)
-指令：d
-当前坐标：(4, 5)
-指令：u
-当前坐标：(3, 5)
+当前坐标：(1, 9)
 </pre>
 </div>
 </div>
