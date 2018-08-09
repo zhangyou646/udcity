@@ -41,7 +41,7 @@
 # 
 # 提示：记得使用 notebook 中的魔法指令 `%matplotlib inline`，否则会导致你接下来无法打印出图像。
 
-# In[1]:
+# In[276]:
 
 
 import numpy as np
@@ -67,19 +67,41 @@ movie_data = pd.read_csv('./tmdb-movies.csv')
 # 
 # 
 
-# In[2]:
+# In[277]:
 
 
+# 改进分别显示
 # 1.获取数据表的行列，并打印。(第一行的 original_title 列)
 print(movie_data['original_title'][0])
+
+
+# In[278]:
+
+
+# 增加display 显示
 # 2. 使用 `.head()`、`.tail()`、`.sample()` 方法，观察、了解数据表的情况。
-movie_data.head()
-movie_data.tail()
-movie_data.sample()
+display(movie_data.head())
+display(movie_data.tail())
+display(movie_data.sample())
+
+
+# In[279]:
+
+
 # 3. 使用 `.dtypes` 属性，来查看各列数据的数据类型
 movie_data.dtypes
+
+
+# In[280]:
+
+
 # 4. 使用 `isnull()` 配合 `.any()` 等方法，来查看各列是否存在空值。
 movie_data.isnull().any()
+
+
+# In[281]:
+
+
 #5. 使用 `.describe()` 方法，看看数据表中数值型的数据是怎么分布的。
 movie_data.describe()
 
@@ -92,14 +114,45 @@ movie_data.describe()
 # 
 # 任务：使用适当的方法来清理空值，并将得到的数据保存。
 
-# In[3]:
+# In[282]:
 
 
-# 将NaN空值替换为0
-movie_data_fill_zero = movie_data.fillna(0)
-# 删除包含 NaN 值的任何行
-movie_data_dropna = movie_data.dropna(axis = 0)
-# movie_data_dropna.isnull().sum()
+# 查看各个列空值情况
+display(movie_data.isnull().sum())
+# 查看各列数据类型
+display(movie_data1.dtypes)
+# 处理在下一个cell
+
+
+# In[283]:
+
+
+# 清理空值步骤
+# 分析 可以看见homepage（网站），tagline（宣传词），keywords（）这几列在后面的数据分析处理用不上，而且空值比较大
+# 可将这几列丢弃／忽略
+movie_data1 = movie_data.drop(['homepage','tagline','keywords'], axis=1)
+# 查看各个列空值情况
+display(movie_data1.isnull().sum())
+# 分析发现现在出现空值的列数据类型是字符型
+# 所以将字符串列imdb_id，production_companies,cast,overview后面分析用不上，空值可以用'Unknown'的字眼来填充 
+movie_data1['imdb_id'] = movie_data1['imdb_id'].fillna('Unknown')
+movie_data1['production_companies'] = movie_data1['production_companies'].fillna('Unknown')
+movie_data1['cast'] = movie_data1[ 'cast'].fillna('Unknown')
+movie_data1['overview'] = movie_data1['overview'].fillna('Unknown')
+# genres 电影类型后面分析用到，但是填充Unknown 对类型统计分析没有影响，所以也填充
+movie_data1['genres'] = movie_data1['genres'].fillna('Unknown')
+# 查看处理后的空值情况
+display(movie_data1.isnull().sum())
+# director 导演这一样这里不能填充Unknown，否则影响统计数量的排行榜，这里可以考虑去掉空值对应的行
+movie_data1 = movie_data1.dropna(axis=0) # 实际上到导演分类统计任务中处理更合理
+# 查看处理后的空值情况
+display(movie_data1.isnull().sum())
+# 对比与原始数据行和列
+display(movie_data.shape)
+display(movie_data1.shape)
+
+# 将处理后的空值保存赋值movie_data
+movie_data = movie_data1
 
 
 # ---
@@ -123,18 +176,30 @@ movie_data_dropna = movie_data.dropna(axis = 0)
 # 
 # 要求：每一个语句只能用一行代码实现。
 
-# In[4]:
+# In[284]:
 
 
 # 1. 读取数据表中名为 `id`、`popularity`、`budget`、`runtime`、`vote_average` 列的数据。
-move_data1 = movie_data[['id', 'popularity', 'budget', 'runtime', 'vote_average']]
-# print(move_data1)
-# 2. 读取数据表中前1～20行以及48、49行的数据。
-moive_data2 = movie_data.iloc[0:20].append(movie_data.iloc[47:49])
-# print(moive_data2)
+movie_data1 = movie_data[['id', 'popularity', 'budget', 'runtime', 'vote_average']]
+# print(movie_data1)
+
+# 读取数据表中前1～20行以及48、49行的数据。
+# 创建1-20行索引
+index = [x for x in range(20)]
+# 增加48、49行索引
+for x in range(47,49):
+    index.append(x)
+#2. 读取数据表中前1～20行以及48、49行的数据。
+# 改进 
+movie_data2 = movie_data.iloc[index]
+# print(movie_data2)
+# movie_data2 = movie_data.iloc[0:20].append(movie_data.iloc[47:49])
+
+
+
 # 3. 读取数据表中第50～60行的 `popularity` 那一列的数据。
-moive_data3 = movie_data.iloc[49:60][['popularity']]
-# print(moive_data3)
+movie_data3 = movie_data.iloc[49:60][['popularity']]
+# print(movie_data3)
 
 
 # ---
@@ -148,15 +213,15 @@ moive_data3 = movie_data.iloc[49:60][['popularity']]
 # 
 # 要求：请使用 Logical Indexing实现。
 
-# In[5]:
+# In[285]:
 
 
 # 读取数据表中 popularity 大于5 的所有数据。
-moive_test = movie_data[movie_data['popularity'] > 5]
-# print(moive_test)
+movie_test = movie_data[movie_data['popularity'] > 5]
+# print(movie_test)
 # 读取数据表中 popularity 大于5 的所有数据且发行年份在1996年之后的所有数据。
-moive_test = movie_data[(movie_data['popularity'] > 5) & (movie_data['release_year'] > 1996)]
-# print(moive_test)
+movie_test = movie_data[(movie_data['popularity'] > 5) & (movie_data['release_year'] > 1996)]
+# print(movie_test)
 
 
 # ---
@@ -168,16 +233,16 @@ moive_test = movie_data[(movie_data['popularity'] > 5) & (movie_data['release_ye
 # 
 # 要求：使用 `Groupby` 命令实现。
 
-# In[6]:
+# In[286]:
 
 
 # 对 release_year 进行分组，使用 .agg 获得 revenue 的均值。
-# moive_test = movie_data.groupby('release_year')['revenue'].mean()
-moive_test = movie_data.groupby('release_year')['revenue'].agg(['mean'])
-# print(moive_test)
+# movie_test = movie_data.groupby('release_year')['revenue'].mean()
+movie_test = movie_data.groupby('release_year')['revenue'].agg(['mean'])
+# print(movie_test)
 # 对 director 进行分组，使用 .agg 获得 popularity 的均值，从高到低排列。
-moive_test = movie_data.groupby('director')['popularity'].agg(['mean']).sort_values(by="mean" , ascending=False)
-# print(moive_test)
+movie_test = movie_data.groupby('director')['popularity'].agg(['mean']).sort_values(by="mean" , ascending=False)
+# print(movie_test)
 
 
 # ---
@@ -199,7 +264,7 @@ moive_test = movie_data.groupby('director')['popularity'].agg(['mean']).sort_val
 
 # **任务3.1：**对 `popularity` 最高的20名电影绘制其 `popularity` 值。
 
-# In[7]:
+# In[287]:
 
 
 # 按popularity降幂排序，选取其最高的前20数据
@@ -215,28 +280,32 @@ sb.barplot(data = movie_popularity,y = 'original_title', x = 'popularity',color 
 # ---
 # **任务3.2：**分析电影净利润（票房-成本）随着年份变化的情况，并简单进行分析。
 
-# In[8]:
+# In[288]:
 
 
 # 筛选年份
 year_profit = movie_data[[ 'release_year']]
 # 插入利润列
 year_profit.insert(1,'profit',movie_data[ 'revenue'] - movie_data['budget'])
-# print(year_profit.describe())
-base_color = sb.color_palette()[0]
-# 用直方图显示年份和利润的关系
-sb.countplot(data = year_profit, x = 'release_year', color = base_color);
-plt.xticks(rotation = 90);
+# 求每一年的平均利润
+year_profit = year_profit.groupby((['release_year'])).mean()
+# 转成dataframe,索引变成列
+year_profit.reset_index(inplace=True)
+# print(year_profit)
+# year_profit['release_year'] = year_profit.index
+plt.figure(figsize=(14, 6));
+sb.barplot(data = year_profit,y = 'profit', x = 'release_year',color = base_color);
+plt.xticks(rotation = 70);
 
 # 简要分析
-# 从下图可以看出随着年份的增长，电影净利润总体也随着增长
+# 从下图可以看出随着年份的增长，电影净利润总体也随着增长，每年平均净利也是呈增长但后期变化不大
 
 
 # ---
 # 
 # **[选做]任务3.3：**选择最多产的10位导演（电影数量最多的），绘制他们排行前3的三部电影的票房情况，并简要进行分析。
 
-# In[9]:
+# In[289]:
 
 
 # 获取最多产的10位导演
@@ -245,11 +314,13 @@ directors = movie_data.groupby(['director'])['original_title'].agg(['size']).sor
 #创建一个空的dataframe,用于存放前10导演、电影、票房
 top_data = pd.DataFrame(columns = ['director','original_title','revenue'])
 # 遍历导演获取对应前三票房 DataFrame
+plt.figure(figsize=(12, 4));
 for index, row in directors.iterrows():
     # 筛选导演对应票房前三的电影
     top_data = top_data.append(movie_data[(movie_data['director'] == index)].sort_values(by='revenue' , ascending=False).head(3)[['director','original_title','revenue']])
-    # 剩下怎么去画图？
-    sb.barplot(data = top_data,y = 'revenue', x = 'original_title',color = base_color);
+
+# 整理完数据后生成的图（改进的地方）
+sb.barplot(data = top_data,y = 'revenue', x = 'original_title', hue='director', dodge=False, palette="Set2");
     
 plt.xticks(rotation = 90);
 # print(top_data)
@@ -261,24 +332,28 @@ plt.xticks(rotation = 90);
 # 
 # **[选做]任务3.4：**分析1968年~2015年六月电影的数量的变化。
 
-# In[104]:
+# In[290]:
 
 
 # 柱状图
-movie_d1 = movie_data
+# movie_d1 = movie_data
 # 发行日期release_year转化成数字方便获取数据年份区间
-movie_d1['release_year'] = pd.to_numeric(movie_d1['release_year'])
-# 筛选1968年~2015年电影 数据
-movie_d1 = movie_d1[(movie_d1['release_year'] >= 1968) & (movie_d1['release_year'] <= 2015)]
+# movie_d1['release_year'] = pd.to_numeric(movie_d1['release_year'])
+# movie_d1 = movie_data['release_year'].between(1968, 2015)
+# # 筛选1968年~2015年电影 数据
+# movie_d1 = movie_d1[(movie_d1['release_year'] >= 1968) & (movie_d1['release_year'] <= 2015)]
+# 筛选1968年~2015年电影 数据(改进)
+movie_d1 = movie_data[movie_data['release_year'].between(1968, 2015)]
 # 选取1968年~2015年6月份的电影
 movie_d1 = movie_d1[movie_data['release_date'].str.startswith('6/')]
 # 分组获取
-movie_d2 = movie_d1.groupby(['release_year'])['imdb_id'].agg(['count'])
+movie_d2 = movie_d1.groupby(['release_year'])['id'].agg(['count'])
 # 将时间索引变成列
-movie_d2['release_year'] = movie_d2.index
-# movie_d2.reset_index(name = 'count') # ？？将序列转成dataframe,实际未生效
+movie_d2.reset_index(inplace=True)
+# movie_d2['release_year'] = movie_d2.index
 # print(movie_d2)
 # 绘制968年~2015年六月电影的数量的柱状图
+plt.figure(figsize=(14, 6));
 sb.barplot(data = movie_d2,y = 'count', x = 'release_year',color = base_color);
 plt.xticks(rotation = 80);
 # 简要分析
@@ -289,15 +364,46 @@ plt.xticks(rotation = 80);
 # 
 # **[选做]任务3.5：**分析1968年~2015年六月电影 `Comedy` 和 `Drama` 两类电影的数量的变化。
 
-# In[116]:
+# In[291]:
+
+
+# 审阅老师的思路代码实现 👍
+
+# 将电影类型进行拆分，重新生单个类型的列
+df_genres = movie_data.drop('genres', axis=1).join(movie_data['genres'].str.split('|', expand=True).stack().reset_index(level=1, drop=True).rename('genres'))
+
+# 筛选条件1 年份
+sel_year = df_genres['release_year'].between(1968, 2015)
+
+# 筛选条件2 六月
+sel_June = pd.to_datetime(df_genres['release_date']).dt.month == 6
+
+# 筛选条件3 类型
+sel_genre = df_genres['genres'].isin(['Drama', 'Comedy'])
+# print(df_genres['genres'].head(10))
+# 筛选数据并作图(参考逻辑读取部分)
+plt.figure(figsize=[18, 5])
+# 满足前面筛选条件数据集作图
+sb.countplot(data=df_genres[sel_year&sel_June&sel_genre], x='release_year', hue='genres')
+plt.xticks(rotation=90);
+
+## 简要分析
+# 如下图1968年~2015年六月电影随着年份的增长,Comedy（喜剧）和Drama（戏剧）电影数量总体逐年增长
+
+
+# In[292]:
 
 
 # 集群条形图
+
+# 思路是对了，但是代码实现有待提高
+
 movie_d1 = movie_data
 # 发行日期release_year转化成数字方便获取数据年份区间
 movie_d1['release_year'] = pd.to_numeric(movie_d1['release_year'])
 # 筛选1968年~2015年电影 数据
 movie_d1 = movie_d1[(movie_d1['release_year'] >= 1968) & (movie_d1['release_year'] <= 2015)]
+# movie_d1 = movie_data['release_year'].between(1968, 2015)
 # 选取1968年~2015年6月份的电影
 movie_d2 = movie_d1[movie_data['release_date'].str.startswith('6/')]
 # 选取Comedy 和 Drama 两类的电影数据
